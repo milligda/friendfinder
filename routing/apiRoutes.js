@@ -33,11 +33,11 @@ module.exports = function(app) {
         // store the user's choices as a variable
         var userScores = req.body.scores;
 
-        // clear the output variables before comparing the user's choices
+        // reset the output variables before comparing the user's choices
         var activitySuggestion = '';
         var currentLowScore = 100;
 
-        // for each activity compare the user's choices to the activities scores
+        // cycle through each activitiy 
         for (var i = 0; i < activitiesData.length; i++) {
 
             // set the matchScore to 0 at the start of the score comparison
@@ -56,12 +56,13 @@ module.exports = function(app) {
                 matchScore += Math.abs(activityScore - userChoice);
             }
 
-            // after comparing all the user's choices to the activity's scores, see if it is a better match than the current low score
-            // if it is a better match, set the new currentLowScore and set the activitySuggestion name
+            // after comparing all the user's choices to the activity's scores, 
+            // see if the activity is a better match than the current best match
+            // if it is a better match, set the new currentLowScore and set the activitySuggestion name to this activity
             if (matchScore < currentLowScore) {
 
                 currentLowScore = matchScore;
-                activitySuggestion = activitiesData[i].name;
+                activitySuggestion = activitiesData[i].slug;
 
                 console.log(activitySuggestion + " - " + currentLowScore);
             }
@@ -70,13 +71,8 @@ module.exports = function(app) {
         console.log(currentLowScore);
         console.log(activitySuggestion);
 
-
-        // store the user response in the 
-        // userData.push(req.body);
-
-        // return the activitySuggestion in a way that it can be added to a url and displayed
-        return res.json(userData);
-        
+        // return the activitySuggestion
+        return res.send(activitySuggestion);
     });
 }
 

@@ -4,6 +4,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var exphbs = require("express-handlebars");
 
 // ==============================================================================
 // Express Setup
@@ -21,11 +22,18 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // ==============================================================================
+// Handlebars Setup
+// ==============================================================================
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// ==============================================================================
 // Routing
 // ==============================================================================
 
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 // ==============================================================================
 // Server Listener

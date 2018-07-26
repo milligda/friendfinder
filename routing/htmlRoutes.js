@@ -1,8 +1,9 @@
 // ==============================================================================
-// Set Dependencies
+// Set Dependencies & Required files
 // ==============================================================================
 
 var path = require('path');
+var activities = require('../data/activities.js');
 
 // ===============================================================================
 // Routing
@@ -21,6 +22,21 @@ module.exports = function(app) {
     app.get("/survey", function (req, res) {
         res.sendFile(path.join(__dirname, "../views/survey.html"));
     });
+
+    // route to the individual activity pages
+    app.get("/activity/:activity", function (req, res) {
+
+        var activity = req.params.activity;
+        
+        // cycle through the activities
+        for (var i = 0; i < activities.length; i++) {
+
+            // if the param matches one of our activities, render the 
+            if (activity === activities[i].slug) {
+                return res.render("activity", activities[i]);
+            }
+        }
+    })
 
     // route any unmatched urls to the home.html file
     app.get("/*", function (req, res) {

@@ -86,17 +86,17 @@ $(document).on('click', '#submit-btn', function (event) {
             }
 
             // post the newUser object.  the data received will be the activity which we will then redirect the user to
-            $.post('/api/activities', newUser, function () {
+            $.post('/api/activities', newUser, function (activityName) {
 
                 // redirect to the correct activity page
-                console.log("this was logged");
+                window.location.href = '/activity/' + activityName;
             });
         }
     }
 });
 
 // ==============================================================================
-// When the survey page is ready, display the questions
+// When the survey page is loaded, display the questions
 // ==============================================================================
 
 $(document).ready(function() {
