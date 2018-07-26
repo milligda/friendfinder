@@ -1,0 +1,70 @@
+.question-header {
+    font-weight: bold;
+    
+}
+
+.select-box {
+    max-width: 250px;
+}
+
+/* body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    padding-bottom: 150px;
+}
+
+.jumbotron {
+    background-color: #1C57B3;
+    color: #ffffff;
+}
+
+.card-header {
+    background-color: #1C57B3;
+    color: #fff;
+}
+
+.button-container {
+    display: inherit;
+    margin: 20px 0px;
+}
+
+.train-line {
+    cursor: pointer;
+}
+
+#add-train-container {
+    display: none;
+}
+
+.next-train-time, .next-train-minutes {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.next-train-time {
+    font-weight: bold;
+}
+
+.next-train-minutes {
+    font-style: italic;
+}
+
+.train-stops {
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.train-stop {
+    margin-bottom: 0;
+}
+
+#destination-menu {
+    height: 200px;
+    overflow: auto;
+}
+
+.dropdown {
+    padding-right: 20px;
+} */
