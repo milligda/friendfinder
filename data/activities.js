@@ -44,73 +44,73 @@ var activities = [
     {
         name: 'hiking',
         slug: 'hiking',
-        image: '',
+        image: '/assets/images/hiking.jpg',
         scores: [1, 2, 1, 5, 5, 3, 1, 3, 3, 5]
     },
     {
         name: 'ice climbing',
         slug: 'ice_climbing',
-        image: '',
+        image: '/assets/images/ice_climbing.jpg',
         scores: [5, 5, 1, 5, 1, 1, 4, 1, 3, 2]
     },
     {
         name: 'paddleboarding',
         slug: 'paddleboarding',
-        image: '',
+        image: '/assets/images/paddleboarding.jpg',
         scores: [2, 1, 5, 4, 5, 2, 5, 2, 2, 1]
     },
     {
         name: 'whitewater kayaking',
         slug: 'whitewater_kayaking',
-        image: '',
+        image: '/assets/images/whitewater_kayaking.jpg',
         scores: [5, 1, 5, 5, 5, 2, 3, 1, 3, 1]
     },
     {
         name: 'sea kayaking',
         slug: 'sea_kayaking',
-        image: '',
+        image: '/assets/images/sea_kayaking.jpg',
         scores: [1, 1, 5, 2, 5, 2, 2, 3, 4, 1]
     },
     {
         name: 'surfing',
         slug: 'surfing',
-        image: '',
+        image: '/assets/images/surfing.jpg',
         scores: [5, 1, 5, 1, 5, 3, 4, 1, 2, 1]
     },
     {
         name: 'rock climbing',
         slug: 'rock_climbing',
-        image: '',
+        image: '/assets/images/rock_climbing.jpg',
         scores: [5, 1, 1, 5, 1, 3, 3, 3, 3, 1]
     },
     {
         name: 'mountain biking',
         slug: 'mountain_biking',
-        image: '',
+        image: '/assets/images/mountain_biking.jpg',
         scores: [5, 1, 1, 5, 3, 5, 4, 1, 3, 1]
     },
     {
         name: 'cycling',
         slug: 'cycling',
-        image: '',
+        image: '/assets/images/cycling.jpg',
         scores: [3, 1, 1, 5, 4, 1, 4, 1, 2, 1]
     },
     {
         name: 'running',
         slug: 'running',
-        image: '',
+        image: '/assets/images/running.jpg',
         scores: [2, 1, 1, 5, 5, 2, 1, 1, 1, 4]
     },
     {
         name: 'yoga',
         slug: 'yoga',
-        image: '',
+        image: '/assets/images/yoga.jpg',
         scores: [1, 1, 1, 5, 5, 1, 3, 1, 1, 1]
     },
     {
         name: 'slacklining',
         slug: 'slacklining',
-        image: '',
+        image: '/assets/images/slacklining.jpg',
         scores: [3, 1, 1, 5, 2, 1, 5, 1, 1, 1]
     },
 ]
