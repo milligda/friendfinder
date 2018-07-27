@@ -1,3 +1,8 @@
+// ==============================================================================
+// Set global variables
+// ==============================================================================
+
+var questionsLength = 0;
 
 // ==============================================================================
 // function for displaying survey questions
@@ -5,35 +10,41 @@
 
 function populateQuestions() {
 
-    // cycle through each question
-    for (var i = 0; i < questions.length; i++) {
+    // call to get the questions
+    $.get('/api/questions', function (questions) {
 
-        // create the div container for the question, the id, the label element, the select element and the default select option
-        var question = $('<div class="form-group">');
-        var id = 'question' + (i + 1);
-        var label = $('<label for="' + id + '" class="question-header">' + questions[i].title + '</label>');
-        var select = $('<select class="form-control select-box " id="' + id + '">');
-        var defaultOption = $('<option selected>Select an option</option>');
+        questionsLength = questions.length;
 
-        // append the pieces to the question div
-        defaultOption.appendTo(select);
-        label.appendTo(question);
+        // cycle through each question
+        for (var i = 0; i < questions.length; i++) {
 
-        // cycle through each option and append them to the select element
-        for (var j = 0; j < questions[i].option.length; j++) {
-            var option = $('<option value="' + (j + 1) + '">' + questions[i].option[j] + '</option>');
-            option.appendTo(select);
+            // create the div container for the question, the id, the label element, the select element and the default select option
+            var question = $('<div class="form-group">');
+            var id = 'question' + (i + 1);
+            var label = $('<label for="' + id + '" class="question-header">' + questions[i].title + '</label>');
+            var select = $('<select class="form-control select-box " id="' + id + '">');
+            var defaultOption = $('<option selected>Select an option</option>');
+
+            // append the pieces to the question div
+            defaultOption.appendTo(select);
+            label.appendTo(question);
+
+            // cycle through each option and append them to the select element
+            for (var j = 0; j < questions[i].option.length; j++) {
+                var option = $('<option value="' + (j + 1) + '">' + questions[i].option[j] + '</option>');
+                option.appendTo(select);
+            }
+
+            // append the select element to the question div and append the question div to the form
+            select.appendTo(question);
+            question.appendTo('#survey-form');
         }
 
-        // append the select element to the question div and append the question div to the form
-        select.appendTo(question);
-        question.appendTo('#survey-form');
-    }
-
-    // after all the questions have been added, create the submit button and append it to the form
-    var submitButton = $('<button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>');
-    submitButton.appendTo('#survey-form');
-}
+        // after all the questions have been added, create the submit button and append it to the form
+        var submitButton = $('<button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>');
+        submitButton.appendTo('#survey-form');
+    });
+};
 
 // ==============================================================================
 // Survey Event Listener
@@ -56,7 +67,7 @@ $(document).on('click', '#submit-btn', function (event) {
     } else {
 
         // cycle through each question
-        for (var i = 1; i < questions.length + 1; i++) {
+        for (var i = 1; i < questionsLength + 1; i++) {
 
             // store the answer
             var score = $('#question' + i).val().trim();
@@ -99,7 +110,9 @@ $(document).on('click', '#submit-btn', function (event) {
 // When the survey page is loaded, display the questions
 // ==============================================================================
 
-$(document).ready(function() {
+$(function() {
 
-    populateQuestions();
+    if ($('#survey-form').length > 0) {
+        populateQuestions();
+    }
 });

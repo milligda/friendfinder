@@ -4,22 +4,27 @@
 
 var activitiesData = require('../data/activities.js');
 var userData = require('../data/users.js');
+var questionsData = require('../data/questions.js');
 
 
 // ===============================================================================
 // Routing
-// routing is exported to server.js when it is called and passes in the app parameter
-// routes for getting and posting the API data
+// routes for getting and posting to the data objects
 // ===============================================================================
 
 module.exports = function(app) {
     
-    // route to the activities json file
+    // route to the activities file
     app.get('/api/activities', function (req, res) {
         return res.json(activitiesData);
     });
 
-    // route to the users json file
+    // route to the questions file
+    app.get('/api/questions', function (req, res) {
+        return res.json(questionsData);
+    });
+
+    // route to the users file
     app.get('/api/users', function (req, res) {
         return res.json(userData);
     });
@@ -63,13 +68,8 @@ module.exports = function(app) {
 
                 currentLowScore = matchScore;
                 activitySuggestion = activitiesData[i].slug;
-
-                console.log(activitySuggestion + " - " + currentLowScore);
             }
         }
-
-        console.log(currentLowScore);
-        console.log(activitySuggestion);
 
         // return the activitySuggestion
         return res.send(activitySuggestion);
